@@ -1,0 +1,59 @@
+/* First Task */
+
+
+FUNCTION Dot_product(v1, v2: ARRAY_OF INTEGER[2];) : INTEGER;
+VAR
+    ps : INTEGER;
+BEGIN
+    ps := v1[1]*v2[1] + v1[2]*v2[2]
+    RETURN ps ;
+END
+
+ALGORITHM isitOrthogonal
+VAR
+    vec1 : ARRAY_OF INTEGER[2];
+    vec2 : ARRAY_OF INTEGER[2];
+    arr : ARRAY_OF INTEGER [2][50];
+    n,Vx,Vy,i,j : INTEGER;
+BEGIN
+    Write ('write the number of vectors(max 50 vectors)');
+    Read (n);
+    Write ('write your vectors');
+    FOR i FROM 1 TO n STEP 1  DO
+        Write ('give the Vx and Vy of the vector number' , i)
+        Read(Vx);
+        Read(Vy);
+        arr[1][i] := x;
+        arr[2][i] := y;
+    END_FOR
+    Write('The following vectors are orthogonal :')
+    FOR i FROM 1 TO n-1 STEP 1  DO
+        vec1[1] := arr[1][i]
+        vec1[2] := arr[2][i]
+        FOR j FROM i+1 TO n STEP 1  DO
+            vec2[1] := arr[1][j]
+            vec2[2] := arr[2][j]
+            IF (Dot_product(vec1,vec2) = 0) THEN
+                Write(vec1,' and ', vec2)
+            END_IF
+        END_FOR
+    END_FOR
+END
+
+/* Second Task */
+
+ALGORITHM insertionSort
+VAR
+    arr : ARRAY_OF INTEGER[];
+    i,j : INTEGER;
+BEGIN
+    FOR i FROM 2 TO arr.length STEP 1  DO
+        key := arr[i]
+        j := i-1
+        WHILE (j >= 1 && arr[j]>key) DO
+            arr [j+1] := arr[j]
+            j := j-1
+        END_WHILE
+        arr[j+1] := key
+    END_FOR
+END
